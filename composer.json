@@ -1,0 +1,16 @@
+{
+    "name"       : "cftp/post-collections",
+    "description": "WordPress plugin for collections of posts (similar to ACF Relationships but better structured)",
+    "homepage"   : "https://github.com/cftp/post-collections/",
+    "type"       : "wordpress-plugin",
+    "license"    : "GPL-2.0+",
+    "authors"    : [
+            {
+                    "name"    : "Code For The People",
+                    "homepage": "http://codeforthepeople.com/"
+            }
+    ],
+    "require": {
+            "composer/installers": "~1.0"
+    }
+}
