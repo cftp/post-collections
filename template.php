@@ -21,8 +21,13 @@ function get_post_collection( $post_id = null ) {
 
 	# @TODO something like get_posts( 'include=foo,bar' ) to prime the post cache in one hit
 
-	foreach ( $collection as $term )
-		$term->post = get_post( $term->name );
+	foreach ( $collection as $term ) {
+		$term_post = get_post( $term->name );
+		# Check if the post exists and is published
+		if ( is_a( $term_post, 'WP_Post' ) && $term_post->post_status == 'publish' ) {
+			$term->post = $term_post;
+		}
+	}
 
 	$post_collections[$post->ID] = $collection;
 

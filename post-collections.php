@@ -2,7 +2,7 @@
 /*
 Plugin Name:  Post Collections
 Description:  Post Collections
-Version:      1.1
+Version:      1.1.1
 Author:       John Blackbourn for CFTP
 
 Copyright © 2012 John Blackbourn & Code for the People Ltd
@@ -60,6 +60,7 @@ class Post_Collections {
 
 		query_posts( array(
 			'posts_per_page' => 20,
+			'post_status'    => 'publish',
 			'post_type'      => $type['post_types'],
 			's'              => $search,
 		) );
@@ -80,8 +81,7 @@ class Post_Collections {
 
 		}
 
-		header( 'Content-type: application/json' );
-		die( json_encode( compact( 'posts' ) ) );
+		wp_send_json( compact( 'posts' )  );
 
 	}
 
