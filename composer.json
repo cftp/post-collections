@@ -1,7 +1,7 @@
 {
-    "name"       : "cftp/post-collections",
-    "description": "WordPress plugin for collections of posts (similar to ACF Relationships but better structured)",
-    "homepage"   : "https://github.com/cftp/post-collections/",
+    "name"       : "timeincuk/post-collections",
+    "description": "WordPress plugin for collections of posts (similar to ACF Relationships but better structured) -> (TimeInc Uk fork)",
+    "homepage"   : "https://github.com/TimeIncUK/post-collections/",
     "type"       : "wordpress-plugin",
     "license"    : "GPL-2.0+",
     "authors"    : [
