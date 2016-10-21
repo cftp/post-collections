@@ -1,6 +1,10 @@
 <?php
 
 function get_post_collection( $post_id = null ) {
+	
+	if ( null === $post_id )  {
+		return false;	
+	}
 
 	static $post_collections;
 
