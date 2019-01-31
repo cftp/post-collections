@@ -23,6 +23,7 @@ class Post_Collections {
 		add_action( 'load-post.php',                  array( $this, 'enqueue_assets' ) );
 
 		require $this->plugin_path( 'template.php' );
+		require $this->plugin_path( 'widget.php' );
 
 	}
 
