@@ -1,3 +1,5 @@
+# ! Moved to internal GitHub Enterprise !
+
 # Post Collections
 
 A WordPress plugin that provides an admin UI for assigning a collection of posts to another post, and an API for fetching collections.
