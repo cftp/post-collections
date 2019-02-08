@@ -2,7 +2,7 @@
 /*
 Plugin Name:  Post Collections
 Description:  Post Collections
-Version:      1.1
+Version:      1.1.1
 Author:       John Blackbourn for CFTP
 
 Copyright © 2012 John Blackbourn & Code for the People Ltd
@@ -23,6 +23,7 @@ class Post_Collections {
 		add_action( 'load-post.php',                  array( $this, 'enqueue_assets' ) );
 
 		require $this->plugin_path( 'template.php' );
+		require $this->plugin_path( 'widget.php' );
 
 	}
 
@@ -60,6 +61,7 @@ class Post_Collections {
 
 		query_posts( array(
 			'posts_per_page' => 20,
+			'post_status'    => 'publish',
 			'post_type'      => $type['post_types'],
 			's'              => $search,
 		) );
@@ -80,8 +82,7 @@ class Post_Collections {
 
 		}
 
-		header( 'Content-type: application/json' );
-		die( json_encode( compact( 'posts' ) ) );
+		wp_send_json( compact( 'posts' )  );
 
 	}
 
@@ -195,9 +196,9 @@ class Post_Collections {
 				<li class="menu-item">
 					<dl class="menu-item-bar">
 						<dt class="menu-item-handle">
-							<span class="item-title"><?php echo get_the_title( $term->post ); ?></span>
+							<?php edit_post_link( get_the_title( $term->post ), '<span class="item-title">', '</span>', $term->post->ID ); ?>
 							<span class="item-controls">
-								<span class="item-type"><?php echo esc_html( $pto->labels->singular_name ); ?></span>
+								<span class="item-type"><?php echo esc_html( $pto->labels->singular_name ); ?> (<?php echo get_post_status( $term->post ) ?>)</span>
 							</span>
 							<a href="#" class="item-remove" title="<?php esc_attr_e( 'Remove', 'post-collections' ); ?>">
 								<span class="screen-reader-text"><?php _e( 'Remove', 'post-collections' ); ?></span>
